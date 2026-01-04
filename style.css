@@ -215,7 +215,7 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 /* Hero Electric Symbol (transparent PNG) */
 .hero-symbol-wrap {
     position: absolute;
-    right: -2%;
+    right: -20%;
     bottom: -19%;
     top: auto;
     height: 132%;
@@ -292,8 +292,7 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     font-weight: 600;
     color: var(--text-primary);
 }
-.stat-item i { color: var(--lime-green); font-size: 1.2rem; flex: 0 0 auto; }
-.stat-item span { display: inline-block; }
+.stat-item i { color: var(--lime-green); font-size: 1.2rem; }
 
 /* Services Grid */
 .services-grid {
@@ -597,7 +596,7 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 
 @media (max-width: 576px) {
     h1 { font-size: 2.2rem; }
-    .stats-wrapper { justify-content: center; }
+    .stats-wrapper { justify-content: center; font-size: 0.7rem; }
 
     .hero-symbol-wrap {
         right: -34%;
@@ -608,31 +607,6 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
         opacity: 0.95;
     }
     .hero-symbol { transform: rotate(-8deg); }
-
-    /* Stats: clean mobile alignment (icon column + text column) */
-    .stats-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 22px;
-    }
-    .stat-item {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 16px;
-    }
-    .stat-item i {
-        width: 44px; /* fixed column to align all text */
-        text-align: center;
-        font-size: 1.6rem;
-        line-height: 1;
-    }
-    .stat-item span {
-        font-size: 1.5rem;
-        line-height: 1.15;
-        white-space: normal;
-        text-align: left;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
