@@ -305,7 +305,14 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     animation: spin 10s linear infinite;
 }
 
-.badge-text svg { width: 100%; height: 100%; fill: var(--primary-bg); font-weight: 700; letter-spacing: 2px; }
+.badge-text svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary-bg);
+    font-weight: 700;
+    letter-spacing: 2px;
+    overflow: visible; /* prevent small-size SVG text clipping */
+}
 .badge-icon { font-size: 1.35rem; color: var(--orange); position: relative; z-index: 3; }
 
 /* Stats Bar */
@@ -775,8 +782,8 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
             rgba(255, 255, 255, 0.08),
             rgba(255, 255, 255, 0.02)
         );
-        backdrop-filter: blur(32px) saturate(180%);
-        -webkit-backdrop-filter: blur(32px) saturate(180%);
+        backdrop-filter: blur(100px) saturate(180%);
+        -webkit-backdrop-filter: blur(100px) saturate(180%);
         z-index: -1;
     }
     .nav-menu.active {
@@ -814,6 +821,10 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 
     /* Keep the float subtle on mobile */
     .hero-symbol-wrap { animation-duration: 7.5s; }
+
+    /* Hero badge: ensure full ring text is visible on small sizes */
+    .hero-badge .badge-text text { font-size: 11px !important; }
+    .hero-badge .badge-text svg { letter-spacing: 1.2px; }
 
     /* Contact info: mobile left-aligned list with perfectly stacked icons */
     .contact-info { text-align: left; }
