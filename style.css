@@ -368,7 +368,7 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 /* Desktop: keep description line-length consistent */
 @media (min-width: 993px) {
     .feature-item p {
-        max-width: 520px;
+        max-width: 420px;
     }
 }
 .feature-icon {
