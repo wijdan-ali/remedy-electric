@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        if (navbar) navbar.classList.toggle('menu-open', navMenu.classList.contains('active'));
 
         // Keep nav visible while the menu is open
         if (navbar) {

@@ -254,15 +254,17 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 .hero-symbol-wrap {
     position: absolute;
     right: -20%;
-    bottom: -19%;
+    bottom: -10%;
     top: auto;
-    height: 132%;
+    height: 120%;
     max-height: 720px;
     z-index: 1;
     pointer-events: none;
     user-select: none;
     will-change: transform;
     animation: hero-float 6s ease-in-out infinite;
+    opacity: 0.3;
+    filter: blur(1px) saturate(30%);
 }
 
 .hero-symbol {
@@ -417,10 +419,27 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     gap: 50px;
     align-items: center;
 }
+
+.content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .feature-item {
     display: flex;
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 0;
+    padding: 22px 22px;
+    border-radius: 18px;
+    background: rgba(26, 31, 58, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 14px 44px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    transition: var(--transition);
 }
 
 /* Desktop: keep description line-length consistent */
@@ -429,16 +448,29 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
         max-width: 420px;
     }
 }
+
+.feature-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(196, 255, 14, 0.28);
+}
+
+.feature-item h3 { margin: 0 0 6px; }
+.feature-item p { margin: 0; }
+
 .feature-icon {
     min-width: 50px;
     height: 50px;
-    background: var(--secondary-bg);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--orange);
     font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .feature-item { padding: 18px 18px; }
 }
 .feature-img {
     width: 100%;
@@ -794,7 +826,23 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     .hamburger { display: block; }
     .nav-actions { display: none; }
     /* override old hero-only positioning (badge is now in content) */
-    .navbar { width: calc(100% - 24px); top: 12px; }
+    .navbar {
+        width: calc(100% - 24px);
+        top: 12px;
+        /* Make the pill clearly visible on busy/glowy backgrounds */
+        background: rgba(10, 14, 39, 0.82);
+        border-color: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        box-shadow:
+            0 16px 55px rgba(0, 0, 0, 0.55),
+            inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    }
+
+    .navbar.menu-open {
+        background: rgba(10, 14, 39, 0.92);
+        border-color: rgba(255, 255, 255, 0.18);
+    }
 
     .nav-link { display: inline-block; padding: 10px 18px; }
 
@@ -802,6 +850,14 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     .contact-info { text-align: left; }
     .info-item { justify-content: flex-start; }
     .info-item > div { align-items: flex-start; }
+}
+
+/* Fallback for browsers where backdrop-filter doesn't render */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    @media (max-width: 992px) {
+        .navbar { background: rgba(10, 14, 39, 0.95); }
+        .nav-menu::before { background: rgba(10, 14, 39, 0.95); background-image: none; }
+    }
 }
 
 @media (max-width: 576px) {
