@@ -472,6 +472,27 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 @media (max-width: 992px) {
     .feature-item { padding: 18px 18px; }
 }
+
+@media (max-width: 576px) {
+    /* Mobile: keep all Why-Choose cards the same height */
+    .feature-item {
+        min-height: 168px;
+        align-items: center;
+    }
+    .feature-item > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 50px;
+    }
+    .feature-item p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+    }
+}
 .feature-img {
     width: 100%;
     border-radius: 20px;
