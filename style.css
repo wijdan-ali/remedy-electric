@@ -475,7 +475,7 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
 
 .info-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     margin-bottom: 30px;
 }
@@ -489,13 +489,15 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    flex: 0 0 50px;
 }
 
 .info-item > div {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding-top: 2px; /* visually aligns first line with icon center */
+    min-height: 50px; /* align the two-line text block with icon */
+    justify-content: center;
 }
 
 .contact-info .info-item p {
@@ -511,19 +513,16 @@ p { color: var(--text-secondary); margin-bottom: 1.5rem; }
     text-decoration: none;
     font-weight: 700;
     line-height: 1.25;
+    font-size: 1.15rem;
 }
 
-.contact-info .info-item a:not(.large-link) {
-    font-weight: 600;
-    color: var(--electric-blue);
-    overflow-wrap: anywhere;
-}
+.contact-info .info-item a { overflow-wrap: anywhere; }
 
 .contact-info .info-item a:hover {
     color: var(--lime-green);
 }
 
-.large-link { font-size: 1.5rem; color: var(--text-primary); text-decoration: none; font-weight: 800; }
+.large-link { font-size: 1.15rem; color: var(--text-primary); text-decoration: none; font-weight: 700; }
 
 .service-map-placeholder {
     margin-top: 24px;
